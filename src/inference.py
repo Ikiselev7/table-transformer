@@ -64,18 +64,18 @@ def get_class_map(data_type):
     return class_map
 
 detection_class_thresholds = {
-    "table": 0.5,
-    "table rotated": 0.5,
+    "table": 0.05,
+    "table rotated": 0.05,
     "no object": 10
 }
 
 structure_class_thresholds = {
-    "table": 0.5,
-    "table column": 0.5,
-    "table row": 0.5,
-    "table column header": 0.5,
-    "table projected row header": 0.5,
-    "table spanning cell": 0.5,
+    "table": 0.05,
+    "table column": 0.05,
+    "table row": 0.05,
+    "table column header": 0.05,
+    "table projected row header": 0.05,
+    "table spanning cell": 0.05,
     "no object": 10
 }
 
@@ -925,7 +925,7 @@ def main():
                 output_result(key, val, args, img, img_file)
 
         if args.mode == 'extract':
-            extracted_tables = pipe.extract(img, tokens, out_objects=args.objects, out_cells=args.csv,
+            extracted_tables = pipe.extract(img, tokens, out_objects=args.objects, out_cells=args.cells,
                                             out_html=args.html, out_csv=args.csv,
                                             crop_padding=args.crop_padding)
             print("Table(s) extracted.")
